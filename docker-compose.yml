@@ -1,6 +1,7 @@
 services:
   app:
     build:
+      image: devojannewbie/laravel-online-store-starter:latest
       context: .
       dockerfile: docker/php/Dockerfile
     container_name: laravel-app
