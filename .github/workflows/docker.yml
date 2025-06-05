@@ -3,7 +3,7 @@ name: Build and Push Laravel Docker Image
 on:
   push:
     branches:
-      - main  # jalan kalau push ke branch `main`
+      - main
 
 jobs:
   build-and-push:
@@ -11,8 +11,13 @@ jobs:
     environment: DOCKERHUB FAUZAN RIZKI
 
     steps:
-      - name: 📥 Checkout repo
+      - name: 📥 Checkout repo utama
         uses: actions/checkout@v4
+
+      - name: 🔁 Clone Laravel Breeze Starter
+        run: |
+          mkdir -p apps
+          git clone https://github.com/username/laravel-breeze-starter.git apps/laravel-breeze-starter
 
       - name: 🐳 Login ke Docker Hub
         uses: docker/login-action@v3
