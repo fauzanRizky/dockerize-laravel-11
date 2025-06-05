@@ -17,7 +17,7 @@ jobs:
       - name: 🔁 Clone Laravel Breeze Starter
         run: |
           mkdir -p apps
-          git clone https://github.com/username/laravel-breeze-starter.git apps/laravel-breeze-starter
+          git clone https://github.com/fauzanRizky/laravel-breeze-starter.git apps/laravel-breeze-starter
 
       - name: 🐳 Login ke Docker Hub
         uses: docker/login-action@v3
