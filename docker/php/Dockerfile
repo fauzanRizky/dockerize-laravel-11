@@ -7,9 +7,7 @@ RUN apt-get update && apt-get install -y \
     libonig-dev libxml2-dev \
     libzip-dev \
     libpq-dev \
-    vim \
-    nano \
-    default-mysql-client
+    vim nano default-mysql-client
 
 # Install PHP extensions
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
@@ -19,6 +17,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Set working dir
 WORKDIR /var/www
+COPY ./apps/laravel-breeze-starter /var/www
 
 # Install Node.js (versi terbaru)
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \

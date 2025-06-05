@@ -1,0 +1,28 @@
+name: Build and Push Laravel Docker Image
+
+on:
+  push:
+    branches:
+      - main  # jalan kalau push ke branch `main`
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repo
+        uses: actions/checkout@v4
+
+      - name: 🐳 Login ke Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: 🏗️ Build image
+        run: |
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/laravel-11-breeze-starter:1.0 -f docker/php/Dockerfile .
+
+      - name: 🚀 Push image ke Docker Hub
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/laravel-11-breeze-starter:1.0

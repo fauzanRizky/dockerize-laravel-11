@@ -1,3 +1,10 @@
-/laravel-11-starter
+/laravel-11-starter/
+/laravel-11-breeze/
+/laravel-11-starter-apps/
 /online-store-laravel-11/
-
+/docker/Dockerfile
+/docker/mysql-breeze/
+/docker/mysql/
+/docker/file-uploads/
+/docker/file-uploads-breeze/
+/apps/
